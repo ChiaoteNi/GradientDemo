@@ -9,13 +9,14 @@
 import Foundation
 import UIKit
 
-class CustomerBatteryView: UIView {
+class BatteryView: UIView {
     
     private var electrodeView: UIView?
     private var bodyView: UIView?
+    private let headerGradient = CAGradientLayer()
     
-    private let xSeperateRatio: CGFloat = 0.9
-    private let yHeightRatio: CGFloat = 0.5
+    private let xSeperateRatio: CGFloat = 0.93
+    private let yHeightRatio: CGFloat = 0.4
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -27,7 +28,7 @@ class CustomerBatteryView: UIView {
         setup()
     }
     
-    func setup() {
+    private func setup() {
         for subView in subviews {
             subView.removeFromSuperview()
         }
@@ -35,13 +36,15 @@ class CustomerBatteryView: UIView {
         setupBodyView()
     }
     
-    func updateBatteryLevel(color: UIColor, value: Double) {
-        setBGGrandent(for: bodyView, value: value, leftColor: color, rightColor: .clear)
+    func updateBatteryLevel(color: UIColor, emptyColor: UIColor = .clear, value: Double) {
+        let level = NSNumber(value: value)
+        headerGradient.colors       = [color.cgColor, emptyColor.cgColor]
+        headerGradient.locations    = [level, level]
     }
     
     private func setupElectrodeView() {
         let size = bounds.size
-        let electrodeViewPtx    = size.width * xSeperateRatio
+        let electrodeViewPtx    = size.width * (xSeperateRatio - 0.02)
         let electrodeViewWidth  = (size.width - electrodeViewPtx)
         let electrodeViewHeight = size.height * yHeightRatio
         let electrodeViewPty    = (size.height - electrodeViewHeight) / 2// (a - 0.9a)/2
@@ -52,7 +55,7 @@ class CustomerBatteryView: UIView {
                                              height: electrodeViewHeight))
         
         setBGGrandent(for: electrodeView, value: 0.5, leftColor: .clear, rightColor: .white)
-        electrodeView?.cornerRadius = 2.5
+        electrodeView?.cornerRadius = electrodeViewHeight / 2
         electrodeView?.layer.masksToBounds = true
         
         self.addSubview(electrodeView!)
@@ -69,13 +72,18 @@ class CustomerBatteryView: UIView {
                                         y: bodyViewPty,
                                         width: bodyViewWidth,
                                         height: bodyViewHeight))
+        guard let bodyView = bodyView else { return }
+        bodyView.layer.borderColor            = UIColor.white.cgColor
+        bodyView.layer.borderWidth            = bodyViewHeight / 50
+        bodyView.cornerRadius           = bodyViewHeight / 10
+        bodyView.layer.masksToBounds    = true
         
-        bodyView?.borderColor = .white
-        bodyView?.borderWidth = 0.5
-        bodyView?.cornerRadius = 1.5
-        bodyView?.layer.masksToBounds = true
-        
-        self.addSubview(bodyView!)
+        headerGradient.frame            = bodyView.bounds
+        headerGradient.colors           = [UIColor.clear.cgColor, UIColor.clear.cgColor]
+        headerGradient.startPoint       = CGPoint(x: 0, y: 1)
+        headerGradient.endPoint         = CGPoint(x: 1, y: 1)
+        bodyView.layer.insertSublayer(headerGradient, at: 0)
+        self.addSubview(bodyView)
     }
     
     private func setBGGrandent(for view: UIView?, value: Double, leftColor: UIColor, rightColor: UIColor) {
@@ -91,7 +99,6 @@ class CustomerBatteryView: UIView {
         headerGradient.locations    = [level, level]
         headerGradient.startPoint   = CGPoint(x: 0, y: 1)
         headerGradient.endPoint     = CGPoint(x: 1, y: 1)
-        
         targetView.layer.insertSublayer(headerGradient, at: 0)
     }
 }
