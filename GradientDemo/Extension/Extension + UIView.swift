@@ -10,10 +10,6 @@ import Foundation
 import UIKit
 
 extension UIView {
-    //UIView 動畫速度
-    static let ANIMATION_DURATION_EXIT = 0.5
-    static let ANIMATION_DURATION_SLOW = 0.6
-    static let ANIMATION_DURATION_FAST = 0.2
     
     @IBInspectable var cornerRadius: CGFloat {
         get {
@@ -25,18 +21,9 @@ extension UIView {
         }
     }
     
-    func stopMoveAnimation(){
-        guard let currentPosition = self.layer.presentation()?.position else {
-            printDebug(.error, "collectionView.layer.presentation()? is nil")
-            return
-        }
-        self.layer.removeAllAnimations()
-        self.layer.position = currentPosition
-    }
-    
     func getSubView<T: UIView>(subviewClass: T.Type) -> T? {
         guard self.subviews.isEmpty == false else{
-            //            printDebug(.debug, "getSubView, but \(self.className).subViews is empty.")
+            printDebug(.debug, "getSubView, but \(self.className).subViews is empty.")
             return nil
         }
         for subView in self.subviews {
@@ -53,7 +40,7 @@ extension UIView {
 // MARK: - 設定背景色
 extension UIView {
     
-    /// 用Graphic晶片將img當color畫到View上 （要放在viewWillAppear之後）
+    /// 用Graphic晶片將img當color畫到View上 （因為抓frame, 要放在layout完成之後）
     ///
     /// - Parameters:
     ///   - img: img source
@@ -69,20 +56,32 @@ extension UIView {
         let imgSize = img.size
         let drawRect: CGRect
         
-        if type == .top {
+        switch type {
+        case .top:
             let width = viewSize.width
             let height = imgSize.height / viewSize.width * imgSize.width
             drawRect = CGRect(x: 0, y: 0, width: width, height: height)
-        } else if type == .center {
+        case .center:
             let x = (viewSize.width - imgSize.width) / 2
             let y = (viewSize.height - imgSize.height) / 2
             drawRect = CGRect(x: x, y: y, width: viewSize.width, height: imgSize.height)
-        } else if type == .bottom {
+        case .bottom:
             let x = viewSize.width - imgSize.width
             let y = viewSize.height - imgSize.height
             drawRect = CGRect(x: x, y: y, width: viewSize.width, height: imgSize.height)
-        } else {
+        case .fill:
             drawRect = self.bounds
+        case .aspectFill:
+            let widthRatio = viewSize.width / imgSize.width
+            let heightRatio = viewSize.height / imgSize.height
+            let resizeRatio = max(widthRatio, heightRatio)
+            
+            let width = imgSize.width * resizeRatio
+            let height = imgSize.height * resizeRatio
+            let x = (viewSize.width - width) / 2
+            let y = (viewSize.height - height) / 2
+            
+            drawRect = CGRect(x: x, y: y, width: width, height: height)
         }
         img.draw(in: drawRect)
         
@@ -98,32 +97,11 @@ extension UIView {
         case center
         case bottom
         case fill
+        case aspectFill
     }
 }
 
 // MARK: - LoadNib
-extension UIView {
-    class func fromNib<T: UIView>() -> T {
-        return Bundle.main.loadNibNamed(String(describing: T.self), owner: nil, options: nil)![0] as! T
-    }
-    
-    class func load(nibName name: String, bundle: Bundle? = nil) -> UIView? {
-        return UINib.load(nibName: name, bundle: bundle) as? UIView
-    }
-}
-
-extension UIView {
-    func fadeIn(_ duration: TimeInterval = 1.0, delay: TimeInterval = 0.0, completion: @escaping ((Bool) -> Void) = {(finished: Bool) -> Void in}) {
-        UIView.animate(withDuration: duration, delay: delay, options: UIViewAnimationOptions.curveEaseIn, animations: {
-            self.alpha = 1.0
-        }, completion: completion)  }
-    
-    func fadeOut(_ duration: TimeInterval = 1.0, delay: TimeInterval = 0.0, completion: @escaping (Bool) -> Void = {(finished: Bool) -> Void in}) {
-        UIView.animate(withDuration: duration, delay: delay, options: UIViewAnimationOptions.curveEaseIn, animations: {
-            self.alpha = 0.15
-        }, completion: completion)
-    }
-}
 
 public extension UINib {
     public class func load(nibName name: String, bundle: Bundle? = nil) -> Any? {

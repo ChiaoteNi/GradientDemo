@@ -8,10 +8,11 @@
 
 import UIKit
 
-class BatteryVC: UIViewController {
+class BatteryVC: BaseDemoVC {
 
     @IBOutlet weak var batteryView: BatteryView!
     @IBOutlet weak var blurBatteryView: BlurBatteryView!
+    @IBOutlet weak var statusBatteryView: BatteryView!
     @IBOutlet weak var slider: UISlider!
     
     private var lastValue: Double = 0
@@ -19,9 +20,8 @@ class BatteryVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        view.backgroundColor = .black
+        view.setBackgroundImage(with: #imageLiteral(resourceName: "batteryDemoBG"), withContentType: .aspectFill, backgroundColor: .black)
         slider.addTarget(self, action: #selector(sliderDidEndSliding), for: .touchUpInside)
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,23 +36,25 @@ class BatteryVC: UIViewController {
     @IBAction func sliderValueChanged(_ sender: UISlider) {
         let value = Double(sender.value)
         if value > lastValue || sender.value == sender.maximumValue {
-            batteryView.updateBatteryLevel(color: UIColor.green, value: value)
-            blurBatteryView.updateBatteryLevel(color: UIColor.green, value: value)
+            batteryView.updateBatteryLevel(color: .green, value: value)
+            statusBatteryView.updateBatteryLevel(color: .green, value: value)
+            blurBatteryView.updateBatteryLevel(color: .green, value: value)
         } else {
-            batteryView.updateBatteryLevel(color: UIColor.red, value: value)
-            blurBatteryView.updateBatteryLevel(color: UIColor.red, value: value)
+            batteryView.updateBatteryLevel(color: .red, value: value)
+            statusBatteryView.updateBatteryLevel(color: .red, value: value)
+            blurBatteryView.updateBatteryLevel(color: .red, value: value)
         }
         lastValue = value
     }
     
     @objc private func sliderDidEndSliding() {
-        batteryView.updateBatteryLevel(color: UIColor.white, value: lastValue)
+        batteryView.updateBatteryLevel(color: .white, value: lastValue)
         if lastValue > 0.2 {
-            blurBatteryView.updateBatteryLevel(color: UIColor.green, value: lastValue)
+            blurBatteryView.updateBatteryLevel(color: .green, value: lastValue)
         } else if lastValue > 0.1 {
-            blurBatteryView.updateBatteryLevel(color: UIColor.yellow, value: lastValue)
+            blurBatteryView.updateBatteryLevel(color: .yellow, value: lastValue)
         } else {
-            blurBatteryView.updateBatteryLevel(color: UIColor.red, value: lastValue)
+            blurBatteryView.updateBatteryLevel(color: .red, value: lastValue)
         }
     }
 }

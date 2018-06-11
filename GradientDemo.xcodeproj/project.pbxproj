@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F40507DE20C6B60B001345A4 /* Extension + Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40507DD20C6B60B001345A4 /* Extension + Array.swift */; };
+		F430812C20C659990023BA36 /* BaseDemoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F430812B20C659990023BA36 /* BaseDemoVC.swift */; };
+		F430813120C68DED0023BA36 /* GradientDemoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F430813020C68DED0023BA36 /* GradientDemoVC.swift */; };
 		F4371CAE20B01885004FDE6B /* BatteryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4371CAD20B01885004FDE6B /* BatteryView.swift */; };
 		F4371CB020B01901004FDE6B /* Extension + UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4371CAF20B01901004FDE6B /* Extension + UIView.swift */; };
 		F4371CB220B0192B004FDE6B /* Extension + NSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4371CB120B0192B004FDE6B /* Extension + NSObject.swift */; };
@@ -25,6 +28,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F40507DD20C6B60B001345A4 /* Extension + Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + Array.swift"; sourceTree = "<group>"; };
+		F430812B20C659990023BA36 /* BaseDemoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseDemoVC.swift; sourceTree = "<group>"; };
+		F430813020C68DED0023BA36 /* GradientDemoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientDemoVC.swift; sourceTree = "<group>"; };
 		F4371CAD20B01885004FDE6B /* BatteryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryView.swift; sourceTree = "<group>"; };
 		F4371CAF20B01901004FDE6B /* Extension + UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIView.swift"; sourceTree = "<group>"; };
 		F4371CB120B0192B004FDE6B /* Extension + NSObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + NSObject.swift"; sourceTree = "<group>"; };
@@ -110,6 +116,7 @@
 				F4371CAF20B01901004FDE6B /* Extension + UIView.swift */,
 				F4371CB120B0192B004FDE6B /* Extension + NSObject.swift */,
 				F4AE19E220C38E98009D4700 /* Extension + UITableView.swift */,
+				F40507DD20C6B60B001345A4 /* Extension + Array.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -117,6 +124,8 @@
 		F4FD0E2820AFCA8C0092DC90 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				F430812B20C659990023BA36 /* BaseDemoVC.swift */,
+				F430813020C68DED0023BA36 /* GradientDemoVC.swift */,
 				F4FD0E1620AFCA680092DC90 /* BatteryVC.swift */,
 				F4AE19DB20C38B5A009D4700 /* MaskVC.swift */,
 			);
@@ -206,12 +215,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F430812C20C659990023BA36 /* BaseDemoVC.swift in Sources */,
+				F40507DE20C6B60B001345A4 /* Extension + Array.swift in Sources */,
 				F4371CB020B01901004FDE6B /* Extension + UIView.swift in Sources */,
 				F4FD0E1720AFCA680092DC90 /* BatteryVC.swift in Sources */,
 				F4371CB620B01CC2004FDE6B /* GradientHelper'.swift in Sources */,
 				F4AE19DF20C38D52009D4700 /* TVCell.swift in Sources */,
 				F4AE19E320C38E98009D4700 /* Extension + UITableView.swift in Sources */,
 				F482B32220B03BDF0040DD7C /* BlurBatteryView.swift in Sources */,
+				F430813120C68DED0023BA36 /* GradientDemoVC.swift in Sources */,
 				F4371CAE20B01885004FDE6B /* BatteryView.swift in Sources */,
 				F4FD0E1520AFCA680092DC90 /* AppDelegate.swift in Sources */,
 				F4371CB220B0192B004FDE6B /* Extension + NSObject.swift in Sources */,

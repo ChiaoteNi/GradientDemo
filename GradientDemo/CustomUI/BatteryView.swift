@@ -47,7 +47,7 @@ class BatteryView: UIView {
         let electrodeViewPtx    = size.width * (xSeperateRatio - 0.02)
         let electrodeViewWidth  = (size.width - electrodeViewPtx)
         let electrodeViewHeight = size.height * yHeightRatio
-        let electrodeViewPty    = (size.height - electrodeViewHeight) / 2// (a - 0.9a)/2
+        let electrodeViewPty    = (size.height - electrodeViewHeight) / 2
         
         electrodeView = UIView(frame: CGRect(x: electrodeViewPtx,
                                              y: electrodeViewPty,

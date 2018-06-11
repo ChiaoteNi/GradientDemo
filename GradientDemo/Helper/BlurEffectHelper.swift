@@ -15,7 +15,6 @@ class BlurEffectHelper {
         let blurEffect = UIBlurEffect(style: style)
         let visualEffectView = UIVisualEffectView(effect: blurEffect)
         visualEffectView.frame = frame
-        //        visualEffectView.isUserInteractionEnabled = false
         
         let view = visualEffectView.subviews[1]
         view.backgroundColor = color

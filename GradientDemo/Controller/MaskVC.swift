@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MaskVC: UIViewController {
+class MaskVC: BaseDemoVC {
 
     @IBOutlet weak var topImgView: UIImageView!
     @IBOutlet weak var bottomImgView: UIImageView!
@@ -27,7 +27,7 @@ class MaskVC: UIViewController {
         tableView.dataSource = self
         tableView.register(cellType: TVCell.self)
         
-        topImgView.image = #imageLiteral(resourceName: "230102579-coffee-cup-wallpaper")
+        topImgView.image = #imageLiteral(resourceName: "TopImg")
         topImgView.contentMode = .scaleToFill
         bottomImgView.image = #imageLiteral(resourceName: "BottomImg")
         bottomImgView.contentMode = .scaleToFill
@@ -41,6 +41,10 @@ class MaskVC: UIViewController {
                               UIColor.black.cgColor,
                               UIColor.clear.cgColor]
         tvMaskLayer.locations = [0, 0, 1]
+        
+        let imgView = UIImageView(image: #imageLiteral(resourceName: "maskImg"))
+        imgView.frame = topImgView.frame
+        topImgView.mask = imgView
     }
 
     override func didReceiveMemoryWarning() {
