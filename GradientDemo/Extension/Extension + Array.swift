@@ -9,10 +9,7 @@
 import Foundation
 
 extension Array {
-    
-    typealias E = Element
-    
-    subscript(safe index: Int) -> E? {
+    subscript(safe index: Int) -> Element? {
         guard index >= 0, index < self.count else { return nil }
         let element = self[index]
         return element
