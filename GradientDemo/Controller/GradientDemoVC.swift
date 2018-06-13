@@ -13,31 +13,34 @@ class GradientDemoVC: BaseDemoVC {
     @IBOutlet weak var bgImgView: UIImageView!
     @IBOutlet weak var demoView: UIView!
     @IBOutlet var colorSliders: [UISlider]!
+    @IBOutlet var locationSliders: [UISlider]!
     
     private var gradientLayer = CAGradientLayer()
     
-    private var colors: [CGColor] = [UIColor.blue.cgColor,
-                                     UIColor.red.cgColor,
-                                     UIColor.yellow.cgColor]
+    private var initColors: [CGColor] = [UIColor.blue.cgColor,
+                                         UIColor.red.cgColor,
+                                         UIColor.yellow.cgColor]
     
     private var colorSource: [UIColor] = [UIColor.red,
                                           UIColor.green,
                                           UIColor.blue,
+                                          UIColor.yellow,
                                           UIColor.black.withAlphaComponent(0),
                                           UIColor.white.withAlphaComponent(0)]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        gradientLayer.colors = colors
-        gradientLayer.locations = [0.3, 0.6, 0.9]
-        gradientLayer.startPoint = CGPoint(x: 0, y: 0)
-        gradientLayer.endPoint = CGPoint(x: 1, y: 1)
+        gradientLayer.colors        = initColors
+        gradientLayer.locations     = [0.3, 0.6, 0.9]
+        gradientLayer.startPoint    = CGPoint(x: 0, y: 0)
+        gradientLayer.endPoint      = CGPoint(x: 1, y: 1)
         demoView.layer.addSublayer(gradientLayer)
         
         for slider in colorSliders {
             slider.maximumValue = Float(colorSource.count - 1)
             slider.minimumValue = 0
         }
+        resetGradient()
         // Do any additional setup after loading the view.
     }
 
@@ -68,8 +71,10 @@ class GradientDemoVC: BaseDemoVC {
     
     @IBAction func locationValueChanged(_ sender: UISlider) {
         let index = sender.tag
+        
         guard let locations = gradientLayer.locations else { return }
         guard index < locations.count, index >= 0 else { return }
+        
         gradientLayer.locations?[index] = NSNumber(value: sender.value)
     }
     
@@ -79,13 +84,51 @@ class GradientDemoVC: BaseDemoVC {
         
         guard let colors = gradientLayer.colors else { return }
         guard index < colors.count, index >= 0 else { return }
-        let color = colorSource[safe: Int(sender.value)] ?? UIColor.brown
         
+        let color = colorSource[safe: Int(sender.value)] ?? UIColor.brown
         gradientLayer.colors?[index] = color.cgColor
+        
         sender.thumbTintColor = color
     }
     
     @IBAction func resetColorBtnPressed(_ sender: Any) {
-        gradientLayer.colors = colors
+        resetGradient()
+    }
+    
+    private func resetGradient() {
+        resetColors()
+        resetLocations()
+    }
+    
+    private func resetColors() {
+        for slider in colorSliders {
+            switch slider.tag {
+            case 0:
+                slider.value = 2
+            case 1:
+                slider.value = 0
+            case 2:
+                slider.value = 3
+            default:
+                continue
+            }
+            colorValueChanged(slider)
+        }
+    }
+    
+    private func resetLocations() {
+        for slider in locationSliders {
+            switch slider.tag {
+            case 0:
+                slider.value = 0.3
+            case 1:
+                slider.value = 0.6
+            case 2:
+                slider.value = 0.9
+            default:
+                continue
+            }
+            locationValueChanged(slider)
+        }
     }
 }

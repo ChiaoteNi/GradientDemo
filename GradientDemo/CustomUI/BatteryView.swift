@@ -55,6 +55,7 @@ class BatteryView: UIView {
                                              height: electrodeViewHeight))
         
         setBGGrandent(for: electrodeView, value: 0.5, leftColor: .clear, rightColor: .white)
+        
         electrodeView?.cornerRadius = electrodeViewHeight / 2
         electrodeView?.layer.masksToBounds = true
         
@@ -73,8 +74,8 @@ class BatteryView: UIView {
                                         width: bodyViewWidth,
                                         height: bodyViewHeight))
         guard let bodyView = bodyView else { return }
-        bodyView.layer.borderColor            = UIColor.white.cgColor
-        bodyView.layer.borderWidth            = bodyViewHeight / 50
+        bodyView.layer.borderColor      = UIColor.white.cgColor
+        bodyView.layer.borderWidth      = bodyViewHeight / 50
         bodyView.cornerRadius           = bodyViewHeight / 10
         bodyView.layer.masksToBounds    = true
         
@@ -82,6 +83,7 @@ class BatteryView: UIView {
         headerGradient.colors           = [UIColor.clear.cgColor, UIColor.clear.cgColor]
         headerGradient.startPoint       = CGPoint(x: 0, y: 1)
         headerGradient.endPoint         = CGPoint(x: 1, y: 1)
+        
         bodyView.layer.insertSublayer(headerGradient, at: 0)
         self.addSubview(bodyView)
     }

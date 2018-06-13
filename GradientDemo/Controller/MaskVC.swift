@@ -21,30 +21,32 @@ class MaskVC: BaseDemoVC {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         view.setBackgroundImage(with: #imageLiteral(resourceName: "icu9yIJ"), backgroundColor: .black)
         
-        tableView.delegate = self
-        tableView.dataSource = self
+        tableView.delegate      = self
+        tableView.dataSource    = self
         tableView.register(cellType: TVCell.self)
         
-        topImgView.image = #imageLiteral(resourceName: "TopImg")
-        topImgView.contentMode = .scaleToFill
-        bottomImgView.image = #imageLiteral(resourceName: "BottomImg")
-        bottomImgView.contentMode = .scaleToFill
+        topImgView.image        = #imageLiteral(resourceName: "TopImg")
+        topImgView.contentMode  = .scaleToFill
         
-        topImgMaskLayer.colors = [UIColor.clear.cgColor,
-                                  UIColor.black.cgColor]
-        topImgMaskLayer.locations = [0, 0, 1]
+        bottomImgView.image         = #imageLiteral(resourceName: "BottomImg")
+        bottomImgView.contentMode   = .scaleToFill
         
-        tvMaskLayer.colors = [UIColor.clear.cgColor,
-                              UIColor.black.cgColor,
-                              UIColor.black.cgColor,
-                              UIColor.clear.cgColor]
-        tvMaskLayer.locations = [0, 0, 1]
+        topImgMaskLayer.locations   = [0, 0, 1]
+        topImgMaskLayer.colors      = [UIColor.clear.cgColor, UIColor.black.cgColor]
         
-        let imgView = UIImageView(image: #imageLiteral(resourceName: "maskImg"))
-        imgView.frame = topImgView.frame
-        topImgView.mask = imgView
+        tvMaskLayer.locations   = [0, 0, 1]
+        tvMaskLayer.colors      = [UIColor.clear.cgColor,
+                                   UIColor.black.cgColor,
+                                   UIColor.black.cgColor,
+                                   UIColor.clear.cgColor]
+        
+        // 圖片mask示範
+//        let imgView = UIImageView(image: #imageLiteral(resourceName: "maskImg"))
+//        imgView.frame = topImgView.frame
+//        topImgView.mask = imgView
     }
 
     override func didReceiveMemoryWarning() {
@@ -82,7 +84,9 @@ class MaskVC: BaseDemoVC {
                                                     value, 1 - value,
                                                     1 - spec])
         } else {
-            changeMask(tvMaskLayer, withLocateion: [0, value, 1 - value, 1])
+            changeMask(tvMaskLayer, withLocateion: [0, value,
+                                                    1 - value,
+                                                    1])
         }
     }
     

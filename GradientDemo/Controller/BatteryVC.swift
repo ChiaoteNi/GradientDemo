@@ -19,7 +19,7 @@ class BatteryVC: BaseDemoVC {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
         view.setBackgroundImage(with: #imageLiteral(resourceName: "batteryDemoBG"), withContentType: .aspectFill, backgroundColor: .black)
         slider.addTarget(self, action: #selector(sliderDidEndSliding), for: .touchUpInside)
     }

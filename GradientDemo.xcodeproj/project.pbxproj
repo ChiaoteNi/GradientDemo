@@ -7,19 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F40507DE20C6B60B001345A4 /* Extension + Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40507DD20C6B60B001345A4 /* Extension + Array.swift */; };
 		F430812C20C659990023BA36 /* BaseDemoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F430812B20C659990023BA36 /* BaseDemoVC.swift */; };
 		F430813120C68DED0023BA36 /* GradientDemoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F430813020C68DED0023BA36 /* GradientDemoVC.swift */; };
 		F4371CAE20B01885004FDE6B /* BatteryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4371CAD20B01885004FDE6B /* BatteryView.swift */; };
-		F4371CB020B01901004FDE6B /* Extension + UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4371CAF20B01901004FDE6B /* Extension + UIView.swift */; };
-		F4371CB220B0192B004FDE6B /* Extension + NSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4371CB120B0192B004FDE6B /* Extension + NSObject.swift */; };
 		F4371CB420B01AE4004FDE6B /* BlurEffectHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4371CB320B01AE4004FDE6B /* BlurEffectHelper.swift */; };
 		F4371CB620B01CC2004FDE6B /* GradientHelper'.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4371CB520B01CC2004FDE6B /* GradientHelper'.swift */; };
+		F47FDFF220CE7BE2007461D0 /* Extension + UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47FDFEB20CE7B92007461D0 /* Extension + UITableView.swift */; };
+		F47FDFF320CE7BE2007461D0 /* Extension + NSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47FDFEC20CE7B92007461D0 /* Extension + NSObject.swift */; };
+		F47FDFF420CE7BE2007461D0 /* Extension + Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47FDFED20CE7B92007461D0 /* Extension + Array.swift */; };
+		F47FDFF520CE7BE2007461D0 /* Extension + UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47FDFEE20CE7B92007461D0 /* Extension + UIView.swift */; };
 		F482B32220B03BDF0040DD7C /* BlurBatteryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F482B32120B03BDF0040DD7C /* BlurBatteryView.swift */; };
 		F4AE19DC20C38B5A009D4700 /* MaskVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AE19DB20C38B5A009D4700 /* MaskVC.swift */; };
 		F4AE19DF20C38D52009D4700 /* TVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AE19DD20C38D52009D4700 /* TVCell.swift */; };
 		F4AE19E020C38D52009D4700 /* TVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4AE19DE20C38D52009D4700 /* TVCell.xib */; };
-		F4AE19E320C38E98009D4700 /* Extension + UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AE19E220C38E98009D4700 /* Extension + UITableView.swift */; };
 		F4FD0E1520AFCA680092DC90 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FD0E1420AFCA680092DC90 /* AppDelegate.swift */; };
 		F4FD0E1720AFCA680092DC90 /* BatteryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FD0E1620AFCA680092DC90 /* BatteryVC.swift */; };
 		F4FD0E1A20AFCA680092DC90 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4FD0E1820AFCA680092DC90 /* Main.storyboard */; };
@@ -28,19 +28,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		F40507DD20C6B60B001345A4 /* Extension + Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + Array.swift"; sourceTree = "<group>"; };
 		F430812B20C659990023BA36 /* BaseDemoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseDemoVC.swift; sourceTree = "<group>"; };
 		F430813020C68DED0023BA36 /* GradientDemoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientDemoVC.swift; sourceTree = "<group>"; };
 		F4371CAD20B01885004FDE6B /* BatteryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryView.swift; sourceTree = "<group>"; };
-		F4371CAF20B01901004FDE6B /* Extension + UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIView.swift"; sourceTree = "<group>"; };
-		F4371CB120B0192B004FDE6B /* Extension + NSObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + NSObject.swift"; sourceTree = "<group>"; };
 		F4371CB320B01AE4004FDE6B /* BlurEffectHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurEffectHelper.swift; sourceTree = "<group>"; };
 		F4371CB520B01CC2004FDE6B /* GradientHelper'.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GradientHelper'.swift"; sourceTree = "<group>"; };
+		F47FDFE220CE7757007461D0 /* ToolsProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ToolsProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F47FDFEB20CE7B92007461D0 /* Extension + UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension + UITableView.swift"; sourceTree = "<group>"; };
+		F47FDFEC20CE7B92007461D0 /* Extension + NSObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension + NSObject.swift"; sourceTree = "<group>"; };
+		F47FDFED20CE7B92007461D0 /* Extension + Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension + Array.swift"; sourceTree = "<group>"; };
+		F47FDFEE20CE7B92007461D0 /* Extension + UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension + UIView.swift"; sourceTree = "<group>"; };
 		F482B32120B03BDF0040DD7C /* BlurBatteryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurBatteryView.swift; sourceTree = "<group>"; };
 		F4AE19DB20C38B5A009D4700 /* MaskVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaskVC.swift; sourceTree = "<group>"; };
 		F4AE19DD20C38D52009D4700 /* TVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVCell.swift; sourceTree = "<group>"; };
 		F4AE19DE20C38D52009D4700 /* TVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TVCell.xib; sourceTree = "<group>"; };
-		F4AE19E220C38E98009D4700 /* Extension + UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UITableView.swift"; sourceTree = "<group>"; };
 		F4FD0E1120AFCA680092DC90 /* GradientDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GradientDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4FD0E1420AFCA680092DC90 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F4FD0E1620AFCA680092DC90 /* BatteryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryVC.swift; sourceTree = "<group>"; };
@@ -70,11 +71,31 @@
 			path = CustomUI;
 			sourceTree = "<group>";
 		};
+		F47FDFE120CE7757007461D0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F47FDFE220CE7757007461D0 /* ToolsProject.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F47FDFEF20CE7B92007461D0 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				F47FDFEB20CE7B92007461D0 /* Extension + UITableView.swift */,
+				F47FDFEC20CE7B92007461D0 /* Extension + NSObject.swift */,
+				F47FDFED20CE7B92007461D0 /* Extension + Array.swift */,
+				F47FDFEE20CE7B92007461D0 /* Extension + UIView.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		F4FD0E0820AFCA680092DC90 = {
 			isa = PBXGroup;
 			children = (
 				F4FD0E1320AFCA680092DC90 /* GradientDemo */,
 				F4FD0E1220AFCA680092DC90 /* Products */,
+				F47FDFE120CE7757007461D0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -96,7 +117,7 @@
 				F4FD0E2820AFCA8C0092DC90 /* Controller */,
 				F4371CAC20B0185F004FDE6B /* CustomUI */,
 				F4FD0E2620AFCA720092DC90 /* Helper */,
-				F4FD0E2720AFCA7B0092DC90 /* Extension */,
+				F47FDFEF20CE7B92007461D0 /* Extension */,
 			);
 			path = GradientDemo;
 			sourceTree = "<group>";
@@ -108,17 +129,6 @@
 				F4371CB520B01CC2004FDE6B /* GradientHelper'.swift */,
 			);
 			path = Helper;
-			sourceTree = "<group>";
-		};
-		F4FD0E2720AFCA7B0092DC90 /* Extension */ = {
-			isa = PBXGroup;
-			children = (
-				F4371CAF20B01901004FDE6B /* Extension + UIView.swift */,
-				F4371CB120B0192B004FDE6B /* Extension + NSObject.swift */,
-				F4AE19E220C38E98009D4700 /* Extension + UITableView.swift */,
-				F40507DD20C6B60B001345A4 /* Extension + Array.swift */,
-			);
-			path = Extension;
 			sourceTree = "<group>";
 		};
 		F4FD0E2820AFCA8C0092DC90 /* Controller */ = {
@@ -216,17 +226,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				F430812C20C659990023BA36 /* BaseDemoVC.swift in Sources */,
-				F40507DE20C6B60B001345A4 /* Extension + Array.swift in Sources */,
-				F4371CB020B01901004FDE6B /* Extension + UIView.swift in Sources */,
+				F47FDFF420CE7BE2007461D0 /* Extension + Array.swift in Sources */,
 				F4FD0E1720AFCA680092DC90 /* BatteryVC.swift in Sources */,
 				F4371CB620B01CC2004FDE6B /* GradientHelper'.swift in Sources */,
 				F4AE19DF20C38D52009D4700 /* TVCell.swift in Sources */,
-				F4AE19E320C38E98009D4700 /* Extension + UITableView.swift in Sources */,
+				F47FDFF220CE7BE2007461D0 /* Extension + UITableView.swift in Sources */,
 				F482B32220B03BDF0040DD7C /* BlurBatteryView.swift in Sources */,
 				F430813120C68DED0023BA36 /* GradientDemoVC.swift in Sources */,
+				F47FDFF320CE7BE2007461D0 /* Extension + NSObject.swift in Sources */,
 				F4371CAE20B01885004FDE6B /* BatteryView.swift in Sources */,
+				F47FDFF520CE7BE2007461D0 /* Extension + UIView.swift in Sources */,
 				F4FD0E1520AFCA680092DC90 /* AppDelegate.swift in Sources */,
-				F4371CB220B0192B004FDE6B /* Extension + NSObject.swift in Sources */,
 				F4AE19DC20C38B5A009D4700 /* MaskVC.swift in Sources */,
 				F4371CB420B01AE4004FDE6B /* BlurEffectHelper.swift in Sources */,
 			);

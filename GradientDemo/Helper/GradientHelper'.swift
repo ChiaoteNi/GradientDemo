@@ -32,11 +32,13 @@ class GredientHelper: NSObject {
         guard let view = view else { return }
         
         let gradient = CAGradientLayer()
+        
         gradient.frame      = view.frame
-        gradient.colors     = colors
-        gradient.locations  = locations
-        gradient.startPoint = strPt
-        gradient.endPoint   = endPt
+        gradient.colors     = colors     // [CGColor]
+        gradient.locations  = locations  // [NSNumber]
+        gradient.startPoint = strPt      // CGPoint
+        gradient.endPoint   = endPt      // CGPoint
+        
         view.layer.insertSublayer(gradient, at: 0)
     }
 }

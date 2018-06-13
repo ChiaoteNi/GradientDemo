@@ -14,11 +14,11 @@ class BlurBatteryView: UIView {
     private var electrodeView: UIView?
     private var bodyView: UIView?
     
-    private let electrodeGradient = CAGradientLayer()
-    private let bodyGradient = CAGradientLayer()
+    private let electrodeGradient   = CAGradientLayer()
+    private let bodyGradient        = CAGradientLayer()
     
     private let xSeperateRatio: CGFloat = 0.915
-    private let yHeightRatio: CGFloat = 0.5
+    private let yHeightRatio: CGFloat   = 0.5
     
     private let blurColor: UIColor = UIColor.lightGray.withAlphaComponent(0.2)
     
@@ -58,8 +58,8 @@ class BlurBatteryView: UIView {
         let level = NSNumber(value: newValue)
         electrodeGradient.colors        = [UIColor.clear.cgColor, color.cgColor, color.cgColor, emptyColor.cgColor]
         electrodeGradient.locations     = [0.5, 0.5, level, level]
-        electrodeGradient.startPoint   = CGPoint(x: 0, y: 1)
-        electrodeGradient.endPoint     = CGPoint(x: 1, y: 1)
+        electrodeGradient.startPoint    = CGPoint(x: 0, y: 1)
+        electrodeGradient.endPoint      = CGPoint(x: 1, y: 1)
     }
     
     private func updateBodyGradient(color: UIColor, emptyColor: UIColor = .clear, value: Double) {
@@ -80,7 +80,11 @@ class BlurBatteryView: UIView {
                            width: electrodeViewWidth,
                            height: electrodeViewHeight)
         
-        let blurView = BlurEffectHelper.getBlurEffectView(frame: CGRect(x: frame.width/2, y: 0, width: frame.width, height: frame.height), color: blurColor, style: .regular)
+        let blurView = BlurEffectHelper.getBlurEffectView(frame: CGRect(x: frame.width/2,
+                                                                        y: 0,
+                                                                        width: frame.width,
+                                                                        height: frame.height),
+                                                          color: blurColor, style: .regular)
         let blurContainerView = UIView(frame: frame)
         blurContainerView.cornerRadius = electrodeViewHeight / 2
         blurContainerView.layer.masksToBounds = true
@@ -92,10 +96,10 @@ class BlurBatteryView: UIView {
         electrodeView?.cornerRadius = electrodeViewHeight / 2
         electrodeView?.layer.masksToBounds = true
         
-        electrodeGradient.frame = electrodeView!.bounds
-        electrodeGradient.colors = [UIColor.clear.cgColor, UIColor.clear.cgColor]
-        electrodeGradient.startPoint       = CGPoint(x: 0, y: 1)
-        electrodeGradient.endPoint         = CGPoint(x: 0, y: 1)
+        electrodeGradient.frame         = electrodeView!.bounds
+        electrodeGradient.colors        = [UIColor.clear.cgColor, UIColor.clear.cgColor]
+        electrodeGradient.startPoint    = CGPoint(x: 0, y: 1)
+        electrodeGradient.endPoint      = CGPoint(x: 0, y: 1)
         
         let electrodeGradientView = UIView(frame: electrodeView!.frame)
         electrodeGradientView.cornerRadius = electrodeViewHeight / 2
@@ -128,7 +132,9 @@ class BlurBatteryView: UIView {
         bodyGradient.colors           = [UIColor.clear.cgColor, UIColor.clear.cgColor]
         bodyGradient.startPoint       = CGPoint(x: 0, y: 1)
         bodyGradient.endPoint         = CGPoint(x: 1, y: 1)
+        
         bodyView.layer.insertSublayer(bodyGradient, at: 0)
+        
         self.addSubview(blurView)
         self.addSubview(bodyView)
     }
@@ -141,11 +147,13 @@ class BlurBatteryView: UIView {
         let level = NSNumber(value: value)
         
         let headerGradient = CAGradientLayer()
+        
         headerGradient.frame        = targetView.bounds
         headerGradient.colors       = [leftColor.cgColor, rightColor.cgColor]
         headerGradient.locations    = [level, level]
         headerGradient.startPoint   = CGPoint(x: 0, y: 1)
         headerGradient.endPoint     = CGPoint(x: 1, y: 1)
+        
         targetView.layer.insertSublayer(headerGradient, at: 0)
     }
 }

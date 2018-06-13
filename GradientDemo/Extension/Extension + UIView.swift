@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-extension UIView {
+public extension UIView {
     
     @IBInspectable var cornerRadius: CGFloat {
         get {
@@ -38,7 +38,7 @@ extension UIView {
 }
 
 // MARK: - 設定背景色
-extension UIView {
+public extension UIView {
     
     /// 用Graphic晶片將img當color畫到View上 （因為抓frame, 要放在layout完成之後）
     ///
@@ -46,7 +46,7 @@ extension UIView {
     ///   - img: img source
     ///   - type: 佈滿模式
     ///   - backgroundColor: 圖片以外的底色
-    func setBackgroundImage(with img: UIImage, withContentType type: BgImgContentMode = .fill, backgroundColor: UIColor) {
+    public func setBackgroundImage(with img: UIImage, withContentType type: BgImgContentMode = .fill, backgroundColor: UIColor) {
         UIGraphicsBeginImageContext(self.bounds.size)
         // 畫底色
         backgroundColor.setFill()
@@ -92,7 +92,7 @@ extension UIView {
         self.backgroundColor = UIColor(patternImage: image)
     }
     
-    enum BgImgContentMode {
+     enum BgImgContentMode {
         case top
         case center
         case bottom
